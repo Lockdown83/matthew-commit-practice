@@ -1,0 +1,28 @@
+import turtle
+
+def draw_flower():
+    turtle.speed(2)
+    turtle.penup()
+    turtle.goto(0, -200)
+    turtle.pendown()
+
+    for _ in range(36):
+        draw_petal()
+        turtle.right(10)
+
+def draw_petal():
+    turtle.begin_fill()
+    for _ in range(2):
+        turtle.forward(100)
+        turtle.right(45)
+        turtle.forward(10)
+        turtle.right(90)
+        turtle.forward(10)
+        turtle.right(45)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.forward(10)
+    turtle.pendown()
+
+draw_flower()
+turtle.done() 
