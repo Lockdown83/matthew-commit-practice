@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .game-container {
+            text-align: center;
+        }
+        
+        #gameCanvas {
+            border: 2px solid #2121ff;
+            background-color: #000;
+        }
+        
+        .game-info {
+            color: #fff;
+            margin-top: 20px;
+        }
+        
+        .score {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .lives {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .controls {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+        
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        .restart-btn {
+            background-color: #ff0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .restart-btn:hover {
+            background-color: #ff6;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="560" height="620"></canvas>
+        <div class="game-info">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="lives">Lives: <span id="lives">3</span></div>
+            <div class="controls">
+                Use arrow keys or WASD to move Pacman
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-over" id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button class="restart-btn" onclick="restartGame()">Play Again</button>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html> 

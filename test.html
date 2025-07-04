@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Test</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #status {
+            font-size: 18px;
+            margin: 20px;
+        }
+        #gameCanvas {
+            border: 2px solid #2121ff;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pacman Game Test</h1>
+    <div id="status">Loading...</div>
+    <canvas id="gameCanvas" width="560" height="620"></canvas>
+    
+    <script>
+        // Test if canvas is working
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        if (ctx) {
+            document.getElementById('status').textContent = 'Canvas loaded successfully!';
+            
+            // Draw a simple test
+            ctx.fillStyle = '#ffff00';
+            ctx.fillRect(100, 100, 50, 50);
+            
+            // Try to load the game
+            try {
+                const script = document.createElement('script');
+                script.src = 'game.js';
+                script.onload = function() {
+                    document.getElementById('status').textContent = 'Game loaded successfully! Check console for any errors.';
+                };
+                script.onerror = function() {
+                    document.getElementById('status').textContent = 'Error loading game.js file!';
+                };
+                document.head.appendChild(script);
+            } catch (error) {
+                document.getElementById('status').textContent = 'Error: ' + error.message;
+            }
+        } else {
+            document.getElementById('status').textContent = 'Canvas not supported!';
+        }
+    </script>
+</body>
+</html> 
